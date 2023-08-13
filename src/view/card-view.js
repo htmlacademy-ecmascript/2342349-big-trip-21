@@ -1,6 +1,11 @@
-import View from './view';
-import {html} from '../util';
+import View from './view.js';
+import {html} from '../util.js';
 
+/**
+ * @typedef {import('./list-view').ItemState} State
+ *
+ * @extends {View<State>}
+ */
 class CardView extends View {
   constructor() {
     super();
@@ -8,6 +13,7 @@ class CardView extends View {
   }
 
   createHtml() {
+    // console.log(this.state);
     return html`
       <div class="event">
         ${this.createStartDataHtml()}
@@ -97,6 +103,5 @@ class CardView extends View {
 }
 
 customElements.define('card-view', CardView);
+
 export default CardView;
-
-

@@ -1,7 +1,7 @@
 # Проект «Большое путешествие»
 
 * Студент: [Vladimir Maximov](https://up.htmlacademy.ru/ecmascript/21/user/2342349).
-* Наставник: [Глеб Клецков](https://htmlacademy.ru/profile/id1487865).
+* Наставник: [Александр Конотоп](https://htmlacademy.ru/profile/sineway).
 
 ---
 

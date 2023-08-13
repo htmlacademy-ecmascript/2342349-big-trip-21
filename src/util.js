@@ -4,7 +4,11 @@
  * @returns {string}
  */
 function html(strings, ...values) {
-  return strings.map((string, index) => `${string}${values[index] || ''}`).join('');
+  return strings.reduce((result, string, index) =>
+    `${result}${string}${Array.isArray(values[index])
+      ? values[index].join('')
+      : values[index] ?? ''}`
+  , '');
 }
 
 export {html};

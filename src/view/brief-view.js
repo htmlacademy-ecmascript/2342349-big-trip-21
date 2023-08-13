@@ -1,5 +1,5 @@
-import View from './view';
-import {html} from '../util';
+import View from './view.js';
+import {html} from '../util.js';
 
 class BriefView extends View {
   constructor() {
