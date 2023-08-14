@@ -41,7 +41,6 @@ class ListView extends View {
   }
 
   render() {
-    console.log(this.state);
     const views = this.state.items.map((item) => {
       const view = item.isEditable ? new EditorView() : new CardView();
 

@@ -36,15 +36,16 @@ class EditorView extends View {
 
   createTypeFieldHtml() {
     const {types} = this.state;
+    const currentTypeValue = types.find((type) => type.isSelected).value;
     return html`
       <div class="event__type-wrapper">
         <label class="event__type  event__type-btn" for="event-type-toggle-1">
           <span class="visually-hidden">Choose event type</span>
           <img
-            alt="Event type icon"
+            alt="Event ${currentTypeValue} icon"
             class="event__type-icon"
             height="17"
-            src="img/icons/${types.find((type) => type.isSelected).value}.png"
+            src="img/icons/${currentTypeValue}.png"
             width="17"
           >
         </label>

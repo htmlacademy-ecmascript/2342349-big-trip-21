@@ -10,8 +10,8 @@ class PointModel extends Model {
 
     this.id = point.id;
     this.basePrice = point.base_price;
-    this.dataFrom = point.date_from;
-    this.dataTo = point.date_to;
+    this.dataFrom = new Date(point.date_from);
+    this.dataTo = new Date(point.date_to);
     this.destinationId = point.destination;
     this.isFavorite = point.is_favorite;
     this.offerIds = structuredClone(point.offers);
