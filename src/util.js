@@ -1,7 +1,4 @@
 import dayjs from 'dayjs';
-import relativeTime from 'dayjs/plugin/relativeTime';
-
-dayjs.extend(relativeTime);
 
 /**
  * @param {TemplateStringsArray} strings
@@ -34,7 +31,6 @@ function formatDateToYearMonthDayTHourMinute(date) {
 
 function getDifferenceBetweenDates(date1, date2) {
   const totalMinutes = dayjs(date2).diff(dayjs(date1), 'minute');
-
   const days = Math.floor(totalMinutes / (24 * 60));
   const hours = Math.floor((totalMinutes - days * 24 * 60) / 60);
   const minutes = totalMinutes % 60;
