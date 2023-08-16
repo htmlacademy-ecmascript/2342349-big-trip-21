@@ -200,8 +200,9 @@ class EditorView extends View {
   }
 
   createDestinationHtml() {
-    const selectedDestination = this.state.destinations
-      .find((destination) => destination.isSelected);
+
+    const {destinations} = this.state;
+    const selectedDestination = destinations.find((destination) => destination.isSelected);
     if (!selectedDestination) {
       return '';
     }

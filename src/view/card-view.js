@@ -1,11 +1,9 @@
 import View from './view.js';
 import {
-  formatDateToHourMinute,
-  formatDateToUppercaseMonthDay,
-  formatDateToYearMonthDay,
-  formatDateToYearMonthDayTHourMinute,
-  getDifferenceBetweenDates,
-  html
+  formatTime,
+  formatDate,
+  formatDuration,
+  html, formatNumber
 } from '../util.js';
 
 /**
@@ -38,30 +36,29 @@ class CardView extends View {
     const {dateFrom} = this.state;
     return html`
       <time class="event__date"
-            datetime="${formatDateToYearMonthDay(dateFrom)}">${formatDateToUppercaseMonthDay(dateFrom)}
+            datetime="${dateFrom}">${formatDate(dateFrom)}
       </time>
     `;
   }
 
   createTypeIconHtml() {
-    const currentType = this.state.types
-      .find((type) => type.isSelected).value;
+    const {types} = this.state;
+    const currentType = types.find((type) => type.isSelected).value;
     return html`
       <div class="event__type">
-        <img class="event__type-icon"
-             width="42"
+        <img alt="Event currentType icon"
+             class="event__type-icon"
              height="42"
              src="img/icons/${currentType}.png"
-             alt="Event ${currentType} icon">
+             width="42" ${currentType}>
       </div>
     `;
   }
 
   createDestinationHtml() {
-    const currentType = this.state.types
-      .find((type) => type.isSelected).value;
-    const currentDestination = this.state.destinations
-      .find((destination) => destination.isSelected)?.name;
+    const {types, destinations} = this.state;
+    const currentType = types.find((type) => type.isSelected).value;
+    const currentDestination = destinations.find((destination) => destination.isSelected)?.name;
     return html`
       <h3 class="event__title">${currentType} ${currentDestination}</h3>
     `;
@@ -73,14 +70,14 @@ class CardView extends View {
       <div class="event__schedule">
         <p class="event__time">
           <time class="event__start-time"
-                datetime="${formatDateToYearMonthDayTHourMinute(dateFrom)}">${formatDateToHourMinute(dateFrom)}
+                datetime="${dateFrom}">${formatTime(dateFrom)}
           </time>
           —
           <time class="event__end-time"
-                datetime="${formatDateToYearMonthDayTHourMinute(dateTo)}">${formatDateToHourMinute(dateTo)}
+                datetime="${dateTo}">${formatTime(dateTo)}
           </time>
         </p>
-        <p class="event__duration">${getDifferenceBetweenDates(dateFrom, dateTo)}</p>
+        <p class="event__duration">${formatDuration(dateFrom, dateTo)}</p>
       </div>
     `;
   }
@@ -89,13 +86,14 @@ class CardView extends View {
     const {basePrice} = this.state;
     return html`
       <p class="event__price">
-        €&nbsp;<span class="event__price-value">${basePrice}</span>
+        €&nbsp;<span class="event__price-value">${formatNumber(basePrice)}</span>
       </p>
     `;
   }
 
   createOfferListHtml() {
-    const currentOffers = this.state.offers.filter((offer) => offer.isSelected);
+    const {offers} = this.state;
+    const currentOffers = offers.filter((offer) => offer.isSelected);
     if (!currentOffers) {
       return '';
     }

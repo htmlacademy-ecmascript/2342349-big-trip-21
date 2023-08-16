@@ -1,4 +1,7 @@
 import dayjs from 'dayjs';
+import durationPlugin from 'dayjs/plugin/duration';
+
+dayjs.extend(durationPlugin);
 
 /**
  * @param {TemplateStringsArray} strings
@@ -6,43 +9,53 @@ import dayjs from 'dayjs';
  * @returns {string}
  */
 function html(strings, ...values) {
-  return strings.reduce((result, string, index) =>
-    `${result}${string}${Array.isArray(values[index])
-      ? values[index].join('')
-      : values[index] ?? ''}`
-  , '');
+  return strings.reduce((result, string, index) => {
+    const value = values[index];
+    const processedValue = Array.isArray(value) ? value.join('') : value;
+
+    return `${result}${string}${processedValue ?? ''}`;
+  }, '');
 }
 
-function formatDateToUppercaseMonthDay(date) {
-  return dayjs(date).format('MMM DD').toUpperCase();
+/**
+ * @param {dayjs.ConfigType} date
+ * @returns {string}
+ */
+function formatDate(date) {
+  return dayjs(date).format('MMM DD');
 }
 
-function formatDateToYearMonthDay(date) {
-  return dayjs(date).format('YYYY-MM-DD');
-}
-
-function formatDateToHourMinute(date) {
+/**
+ * @param {dayjs.ConfigType} date
+ * @returns {string}
+ */
+function formatTime(date) {
   return dayjs(date).format('HH:mm');
 }
 
-function formatDateToYearMonthDayTHourMinute(date) {
-  return dayjs(date).format('YYYY-MM-DDTHH:mm');
+/**
+ * @param {dayjs.ConfigType} dateFrom
+ * @param {dayjs.ConfigType} dateTo
+ * @returns {string}
+ */
+function formatDuration(dateFrom, dateTo) {
+  const duration = dayjs.duration(dayjs(dateTo).diff(dateFrom));
+  if (duration.days()) {
+    return duration.format('DD[d] HH[h] mm[m]');
+  }
+  if (duration.hours()) {
+    return duration.format('HH[h] mm[m]');
+  }
+
+  return duration.format('mm[m]');
 }
 
-function getDifferenceBetweenDates(date1, date2) {
-  const totalMinutes = dayjs(date2).diff(dayjs(date1), 'minute');
-  const days = Math.floor(totalMinutes / (24 * 60));
-  const hours = Math.floor((totalMinutes - days * 24 * 60) / 60);
-  const minutes = totalMinutes % 60;
-
-  if (days) {
-    return `${String(days).padStart(2, '0')}D ${String(hours).padStart(2, '0')}H ${String(minutes).padStart(2, '0')}M`;
-  }
-  if (hours) {
-    return `${String(hours).padStart(2, '0')}H ${String(minutes).padStart(2, '0')}M`;
-  }
-  return `${String(minutes).padStart(2, '0')}M`;
+/**
+ * @param {number} value
+ * @returns {string}
+ */
+function formatNumber(value) {
+  return value.toLocaleString('en');
 }
 
-export {html, formatDateToUppercaseMonthDay, formatDateToYearMonthDay, formatDateToHourMinute,
-  formatDateToYearMonthDayTHourMinute, getDifferenceBetweenDates};
+export {html, formatDate, formatTime, formatDuration, formatNumber};
