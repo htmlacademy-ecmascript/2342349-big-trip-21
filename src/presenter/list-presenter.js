@@ -95,8 +95,8 @@ class ListPresenter extends Presenter {
     Object.assign(point, {
       id: 'draft',
       type: 'flight',
-      dateFrom: new Date(),
-      dateTo: new Date(),
+      dateFrom: null,
+      dateTo: null,
       basePrice: 0,
       isFavorite: false
     });
