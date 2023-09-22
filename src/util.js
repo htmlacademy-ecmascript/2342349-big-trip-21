@@ -26,7 +26,7 @@ function html(strings, ...values) {
  * @returns {string}
  */
 function formatDate(value, isNarrow) {
-  return dayjs(value).format(isNarrow ? 'D' : 'MMM D');
+  return dayjs(value).format(isNarrow ? 'D' : 'D MMM');
 }
 
 /**

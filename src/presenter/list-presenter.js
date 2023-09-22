@@ -1,5 +1,4 @@
 import Presenter from './presenter.js';
-import flatpickr from 'flatpickr';
 
 /**
  * @typedef {import('../view/list-view').default} View
@@ -170,18 +169,10 @@ class ListPresenter extends Presenter {
       editor.render();
 
     } else if (input.name === 'event-start-time') {
-      const flatpickrInstance = flatpickr(input, {
-        dateFormat: 'Y-m-d',
-      });
-      flatpickrInstance.setDate(input.value);
-      editor.state.dateFrom = flatpickrInstance.selectedDates[0];
+      editor.state.dateFrom = new Date(input.value);
 
     } else if (input.name === 'event-end-time') {
-      const flatpickrInstance = flatpickr(input, {
-        dateFormat: 'Y-m-d',
-      });
-      flatpickrInstance.setDate(input.value);
-      editor.state.dateTo = flatpickrInstance.selectedDates[0];
+      editor.state.dateTo = new Date(input.value);
 
     } else if (input.name === 'event-price') {
       editor.state.basePrice = Number(input.value);
