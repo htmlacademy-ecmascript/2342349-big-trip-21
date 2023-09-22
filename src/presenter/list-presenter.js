@@ -22,8 +22,8 @@ class ListPresenter extends Presenter {
   }
 
   /**
-     * @override
-     */
+   * @override
+   */
   updateView() {
     const params = this.navigation.getParams();
     const points = this.model.getPoints(params);
@@ -67,9 +67,9 @@ class ListPresenter extends Presenter {
   }
 
   /**
-     * @param {import('../view/list-view').ItemState} state
-     * @returns {import('../model/point-model').default}
-     */
+   * @param {import('../view/list-view').ItemState} state
+   * @returns {import('../model/point-model').default}
+   */
   createPoint(state) {
     const point = this.model.createPoint();
     Object.assign(point, {
@@ -105,10 +105,10 @@ class ListPresenter extends Presenter {
   }
 
   /**
-     * @param {CustomEvent & {
-     *    target: import('../view/card-view').default
-     * }} event
-     */
+   * @param {CustomEvent & {
+   *    target: import('../view/card-view').default
+   * }} event
+   */
   onViewOpen(event) {
     const params = this.navigation.getParams();
     params.edit = event.target.state.id;
@@ -122,10 +122,10 @@ class ListPresenter extends Presenter {
   }
 
   /**
-     * @param {CustomEvent & {
-     *    target: import('../view/card-view').default
-     * }} event
-     */
+   * @param {CustomEvent & {
+   *    target: import('../view/card-view').default
+   * }} event
+   */
   async onViewFavorite(event) {
     const card = event.target;
 
@@ -139,10 +139,10 @@ class ListPresenter extends Presenter {
   }
 
   /**
-     * @param {CustomEvent<HTMLInputElement> & {
-     *  target: import('../view/editor-view').default
-     * }} event
-     */
+   * @param {CustomEvent<HTMLInputElement> & {
+   *  target: import('../view/editor-view').default
+   * }} event
+   */
   onViewEdit(event) {
     const editor = event.target;
     const input = event.detail;

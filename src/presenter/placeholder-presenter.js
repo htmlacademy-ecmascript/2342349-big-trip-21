@@ -8,8 +8,8 @@ import Presenter from './presenter.js';
  */
 class PlaceholderPresenter extends Presenter {
   /**
-     * @param {[View, Model]} rest
-     */
+   * @param {[View, Model]} rest
+   */
   constructor(...rest) {
     super(...rest);
     this.model.addEventListener('ready', this.onModelReady.bind(this));
@@ -26,8 +26,8 @@ class PlaceholderPresenter extends Presenter {
   }
 
   /**
-     * @returns {string}
-     */
+   * @returns {string}
+   */
   getMessage() {
     const params = this.navigation.getParams();
     const points = this.model.getPoints(params);
