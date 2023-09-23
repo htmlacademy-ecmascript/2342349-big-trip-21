@@ -14,6 +14,19 @@
 /**
  * @typedef {{
  *  id: string
+ *  base_price: number
+ *  date_from: string
+ *  date_to: string
+ *  destination: string
+ *  is_favorite: boolean
+ *  offers: Array<string>
+ *  type: PointType
+ * }} JsoinPoint
+ */
+
+/**
+ * @typedef {{
+ *  id: string
  *  name: string
  *  description: string
  *  pictures: Array<Picture>

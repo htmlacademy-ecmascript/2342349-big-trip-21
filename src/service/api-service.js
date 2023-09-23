@@ -23,7 +23,7 @@ class ApiService extends Service {
   }
 
   /**
-   * @param {Point} data
+   * @param {JsoinPoint} data
    * @returns {Promise<Point>}
    */
   async addPoint(data) {
@@ -36,7 +36,7 @@ class ApiService extends Service {
   }
 
   /**
-   * @param {Point} data
+   * @param {JsoinPoint} data
    * @returns {Promise<Point>}
    */
   async updatePoint(data) {

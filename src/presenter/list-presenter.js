@@ -159,10 +159,8 @@ class ListPresenter extends Presenter {
         type.isSelected = type.value === input.value;
       });
       editor.render();
-      return;
-    }
 
-    if (input.name === 'event-destination') {
+    } else if (input.name === 'event-destination') {
       editor.state.destinations.forEach((destination) => {
         destination.isSelected = destination.name === input.value;
       });
