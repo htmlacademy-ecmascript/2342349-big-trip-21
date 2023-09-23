@@ -26,7 +26,7 @@ function html(strings, ...values) {
  * @returns {string}
  */
 function formatDate(value, isNarrow) {
-  return dayjs(value).format(isNarrow ? 'D' : 'MMM D');
+  return dayjs(value).format(isNarrow ? 'D' : 'D MMM');
 }
 
 /**
@@ -68,14 +68,6 @@ function formatNumber(value) {
  * @returns {Function}
  */
 function createCalendars(inputFrom, inputTo) {
-
-  if (!inputFrom.value || isNaN(new Date(inputFrom.value).getTime())) {
-    inputFrom.value = new Date().toISOString();
-  }
-  if (!inputTo.value || isNaN(new Date(inputTo.value).getTime())) {
-    inputTo.value = new Date().toISOString();
-  }
-
   /**
    * @type {import('flatpickr/dist/types/options').Options}
    */

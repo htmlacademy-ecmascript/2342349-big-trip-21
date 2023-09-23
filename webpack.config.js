@@ -18,7 +18,6 @@ module.exports = {
       patterns: [
         {
           from: './public',
-          // Исключаем index.html, чтобы избежать перезаписи
           globOptions: {
             ignore: ['**/index.html'],
           },
