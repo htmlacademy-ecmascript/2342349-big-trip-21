@@ -18,7 +18,7 @@ class PointModel extends Model {
   }
 
   /**
-   * @returns {JsonPoint}
+   * @returns {Point}
    */
   toJSON() {
     return {

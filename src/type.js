@@ -2,26 +2,13 @@
  * @typedef {{
  *  id: string
  *  base_price: number
- *  date_from: Date
- *  date_to: Date
- *  destination: string
- *  is_favorite: boolean
- *  offers: Array<string>
- *  type: PointType
- * }} Point
- */
-
-/**
- * @typedef {{
- *  id: string
- *  base_price: number
  *  date_from: string
  *  date_to: string
  *  destination: string
  *  is_favorite: boolean
  *  offers: Array<string>
  *  type: PointType
- * }} JsonPoint
+ * }} Point
  */
 
 /**
