@@ -21,7 +21,7 @@
  *  is_favorite: boolean
  *  offers: Array<string>
  *  type: PointType
- * }} JsoinPoint
+ * }} JsonPoint
  */
 
 /**
