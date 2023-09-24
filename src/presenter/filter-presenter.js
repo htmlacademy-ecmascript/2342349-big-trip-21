@@ -35,12 +35,12 @@ class FilterPresenter extends Presenter {
   }
 
   /**
-     * @param {Event & {
-     *  target: HTMLInputElement & {
-     *    value: FilterType
-     *  }
-     * }} event
-     */
+   * @param {Event & {
+   *  target: HTMLInputElement & {
+   *    value: FilterType
+   *  }
+   * }} event
+   */
   onViewChange(event) {
     this.navigation.setParams({
       filter: event.target.value
