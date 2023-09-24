@@ -8,8 +8,8 @@ import Presenter from './presenter.js';
  */
 class ListPresenter extends Presenter {
   /**
-     * @param {[View, Model]} rest
-     */
+   * @param {[View, Model]} rest
+   */
   constructor(...rest) {
     super(...rest);
     this.view.addEventListener('open', this.onViewOpen.bind(this));

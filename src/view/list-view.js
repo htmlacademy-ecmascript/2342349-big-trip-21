@@ -42,6 +42,9 @@ class ListView extends View {
     this.setAttribute('role', 'list');
   }
 
+  /**
+   * @override
+   */
   render() {
     const views = this.state.items.map((item) => {
       const view = item.isEditable ? new EditorView() : new CardView();

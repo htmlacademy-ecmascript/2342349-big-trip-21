@@ -17,6 +17,9 @@ class BriefView extends View {
     this.classList.add('trip-info');
   }
 
+  /**
+   * @override
+   */
   createHtml() {
     const {destinationNames = [], dateFrom, dateTo, totalCost = 0} = this.state;
 

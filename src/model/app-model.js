@@ -77,7 +77,7 @@ class AppModel extends Model {
    *  sort?: SortType
    * }} options
    *
-   * @return {Array<PointModel>}
+   * @returns {Array<PointModel>}
    */
   getPoints(options = {}) {
     const defaultFilter = this.filterCallbacks.everything;
